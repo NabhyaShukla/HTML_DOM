@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 function myFunction(event){
-    event.pereventDefault();
+    event.preventDefault();
+    document.getElementById("square-heading").classList.remove("display-none")
     document.getElementById("square-heading").classList.add("display-visible")
     
 
