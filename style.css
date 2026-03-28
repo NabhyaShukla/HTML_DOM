@@ -1,0 +1,23 @@
+.square{
+    background-color: yellow;
+    color: rgb(82, 110, 26);
+    font-family: monospace;
+    padding: 1rem;
+    max-width: fit-content;
+    border: 3px solid black;border-radius: 2px;
+    box-shadow: 3px 3px 0px 0px gray;
+    text-align: center;
+    transition: all 0.65 ease-in-out;
+}
+
+body{
+    background-color: lightcoral;
+}
+
+.display-none{
+    display: none;
+}
+
+.display-visible{
+    display: block;
+}

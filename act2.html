@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>External JS with DOM</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <p>Adding js as a separate file...</p>
-    <button onclick="myFunction()">Click Me!</button>
-    <h2>The square</h2>
+
+    <form action="">
+        <input type="number" id="num">
+        <button type="submit" onclick="myFunction(event)">Find Square</button>
+    </form>
+    
+    <h2 id="square-heading">Result Of the Square :</h2>
     <p id="demo"></p>
 
     <script src="script.js"></script>
