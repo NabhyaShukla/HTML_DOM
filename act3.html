@@ -1,13 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form Validation</title>
+
+    <style>
+        form {
+            width: 300px;
+            padding: 35px;
+            margin: 0 auto;
+            background-color: rgb(243, 151, 151);
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        button {
+            border: 2px solid orangered;
+            padding: 10px 14px;
+            background-color: coral;
+            color: whitesmoke;
+        }
+
+        button:hover {
+            background-color: orangered;
+            color: white;
+            transform: scale(1.05);
+            cursor: pointer;
+            transition: 0.24s ease-in-out;
+            border: 2px solid orange;
+        }
+    </style>
 </head>
+
 <body>
 
-    
-    
+
+
+    <form action="">
+
+        <div>
+            <label for="">Enter Username</label><br>
+            <input type="text" name="" id="username">
+            <small class="error uname"></small>
+        </div>
+        <div>
+            <label for="">Enter E-Mail</label><br>
+            <input type="email" name="" id="uemail">
+            <small class="error uemail"></small>
+        </div>
+
+        <div>
+            <label for="">Enter Password</label><br>
+            <input type="password" name="" id="upassword">
+            <small class="error upassword"></small>
+        </div>
+
+        <br><button onclick="validateForm(event)">SUBMIT</button>
+    </form>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            let username = document.getElementById("username").value;
+            let uemail = document.getElementById("uemail").value;
+            let upassword = document.getElementById("upassword").value;
+
+            let error = document.getElementsByClassName("error")
+            let uname_error = document.getElementsByClassName("uname")
+            let uemail_error = document.getElementsByClassName("uemail")
+            let upassword_error = document.getElementsByClassName("upassword")
+
+            // clear old errors
+            uname_error.innerHTML = ""
+            uemail_error.innerHTML = ""
+            upassword_error.innerHTML = ""
+
+
+            let isValid = true;
+
+
+            // username
+            if (username.value.length < 5) {
+                uname_error.innerHTML = "Username must be at least 5 characters"
+                uname_error.style.color = "red"
+                isValid = false
+            }
+
+
+            // password
+            if (upassword.value.length < 8) {
+                upassword_error.innerHTML = "Password must be 8 characters"
+                upassword_error.style.color = "red"
+                isValid = false
+            }
+
+
+            // email
+            if (!uemail.value.includes("@") || !uemail.value.includes(".")) {
+                uemail_error.innerHTML = "Invalid email"
+                uemail_error.style.color = "red"
+                isValid = false
+            }
+
+
+            // if everything valid
+            if (isValid) {
+                alert("Form submitted successfully ✅")
+
+
+                // clear inputs
+                username.value = ""
+                uemail.value = ""
+                upassword.value = ""
+            }
+        }
+
+
+        
+    </script>
+
+
+
 </body>
+
 </html>
